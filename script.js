@@ -43,8 +43,14 @@ function setupBoard() {
     }
   }
 
-  function disableCards() {
+  function disableCards() { // if match
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-    resetBoard();
+    resetQue();
+  }
+
+  function unflipCards () { // if not match
+    firstCard.classList.remove('flipped');
+    secondCard.classList.remove('flipped');
+    resetQue();
   }
