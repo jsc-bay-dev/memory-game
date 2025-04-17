@@ -60,3 +60,5 @@ function setupBoard() {
   }
 
   document.getElementById('restart').addEventListener('click', setupBoard);
+
+  setupBoard();
