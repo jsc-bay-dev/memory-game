@@ -6,7 +6,7 @@ let firstCard = null, secondCard = null, lockBoard = false;
 
 function setupBoard() {
     board.innerHTML = '';
-    
+
     cards.forEach(symbol => {
       const card = document.createElement('div');
       card.classList.add('card');
@@ -18,4 +18,18 @@ function setupBoard() {
       card.addEventListener('click', flipCard);
       board.appendChild(card);
     });
+  }
+
+  function flipCard() {
+    if (this === firstCard) return;
+    if (lockBoard) return;
+    this.classList.add('flipped');
+    if(!firstCard){ //if firstCard has not yet been defined yet...
+        firstCard = this;
+        return;
+    }
+    // if firstCard has already been defined...
+    secondCard = this;
+    lockBoard = true;
+    checkForMatch();
   }
