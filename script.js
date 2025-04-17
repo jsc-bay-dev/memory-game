@@ -54,3 +54,9 @@ function setupBoard() {
     secondCard.classList.remove('flipped');
     resetQue();
   }
+
+  function resetBoard() {
+    [firstCard, secondCard, lockBoard] = [null, null, false];
+  }
+
+  document.getElementById('restart').addEventListener('click', setupBoard);
