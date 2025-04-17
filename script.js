@@ -42,3 +42,9 @@ function setupBoard() {
         setTimeout(unflipCards, 1000);
     }
   }
+
+  function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+    resetBoard();
+  }
