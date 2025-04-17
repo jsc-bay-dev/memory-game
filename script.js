@@ -4,9 +4,19 @@ const board = document.querySelector('.game-board');
 
 let firstCard = null, secondCard = null, lockBoard = false;
 
+function shuffle(array) {
+    if (!Array.isArray(array)) {
+      throw new TypeError('Input must be an array');
+    }
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
 function setupBoard() {
     board.innerHTML = '';
-
+    shuffle(cards);
     cards.forEach(symbol => {
       const card = document.createElement('div');
       card.classList.add('card');
@@ -19,6 +29,8 @@ function setupBoard() {
       board.appendChild(card);
     });
   }
+
+  
 
   function flipCard() {
     if (this === firstCard) return;
@@ -55,7 +67,7 @@ function setupBoard() {
     resetQue();
   }
 
-  function resetBoard() {
+  function resetQue() {
     [firstCard, secondCard, lockBoard] = [null, null, false];
   }
 
