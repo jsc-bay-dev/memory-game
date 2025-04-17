@@ -33,3 +33,12 @@ function setupBoard() {
     lockBoard = true;
     checkForMatch();
   }
+
+  function checkForMatch () {
+    const isMatch = firstCard.dataset.symbol === secondCard.dataset.symbol;
+    if (isMatch) {
+        disableCards();
+    } else {
+        setTimeout(unflipCards, 1000);
+    }
+  }
